@@ -1,7 +1,11 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Button text="Add Task" color="Green" />
+        <Button 
+            @btn-click="$emit('toggle-add-task')" 
+            :text="showAddTask ? 'Close' : 'Add Task'" 
+            :color="showAddTask ? 'Red' : 'Green'" 
+        />
     </header>
 </template>
 
@@ -13,8 +17,8 @@ export default {
   props: {
     title: {
         type: String,
-        default: 'Task Manager'
     },
+    showAddTask: Boolean,
   },
   components: {
       Button
